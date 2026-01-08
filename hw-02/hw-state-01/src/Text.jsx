@@ -4,7 +4,7 @@ const Text = ({ title }) => {
   const [state, setState] = useState(true);
   return (
     <>
-      {state ? <p>{title}</p> : ""}
+      {state && <p>{title}</p>}
 
       <button onClick={() => setState((word) => !word)}>Text</button>
 

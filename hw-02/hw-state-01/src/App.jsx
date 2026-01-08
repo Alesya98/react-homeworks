@@ -7,13 +7,13 @@ import Input from "./Input";
 import TextColor from "./TextColor";
 
 function App() {
-  const [state, SetState] = useState(1);
+  const [state, setState] = useState(1);
 
   return (
     <>
       <MyComp count={state} />
-      <button onClick={() => SetState((prev) => prev + 1)}>Click</button>
-      <button onClick={() => SetState(0)}>Reset</button>
+      <button onClick={() => setState((prev) => prev + 1)}>Click</button>
+      <button onClick={() => setState(0)}>Reset</button>
 
       <Text
         title={
