@@ -17,9 +17,9 @@ function App() {
 
       setItems((prev) => [...prev, newItem]);
       idRef.current += 1;
-      e.target.value = "";
+      e.target.value = '';
     }
-    e.target.value;
+    
   };
 
   function focusInput() {
