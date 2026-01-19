@@ -5,10 +5,11 @@ import MyComp from "./List";
 
 function App() {
   const [items, setItems] = useState([]);
+  const [clear, setClear] = useState("");
   const idRef = useRef(1);
   const inputRef = useRef();
 
-  const handleChange = (e) => {
+  const handleOnKeyDown = (e) => {
     if (e.key === "Enter" && e.target.value !== "") {
       const newItem = {
         id: idRef.current,
@@ -17,9 +18,12 @@ function App() {
 
       setItems((prev) => [...prev, newItem]);
       idRef.current += 1;
-      e.target.value = '';
+      setClear('')
     }
-    
+  };
+
+  const handleChange = (e) => {
+    setClear(e.target.value);
   };
 
   function focusInput() {
@@ -28,7 +32,14 @@ function App() {
 
   return (
     <>
-      <input style={{marginRight: '20px'}} ref={inputRef} type="text" onKeyDown={handleChange} />
+      <input
+        style={{ marginRight: "20px" }}
+        ref={inputRef}
+        type="text"
+        value={clear}
+        onKeyDown={handleOnKeyDown}
+        onChange={handleChange}
+      />
       <button onClick={focusInput}>Focus</button>
 
       <MyComp items={items} setItems={setItems} />
